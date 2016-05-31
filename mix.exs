@@ -7,6 +7,7 @@ defmodule MetalArchivesScrapper.Mixfile do
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     escript: [main_module: MetalArchivesScrapper],
      deps: deps]
   end
 
@@ -14,7 +15,9 @@ defmodule MetalArchivesScrapper.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :httpoison]]
+    [
+      applications: [:logger, :httpoison]
+    ]
   end
 
   # Dependencies can be Hex packages:
@@ -29,7 +32,8 @@ defmodule MetalArchivesScrapper.Mixfile do
   defp deps do
     [
       {:floki, "~> 0.8.1"},
-      {:httpoison, "~> 0.8.0"}
+      {:httpoison, "~> 0.8.0"},
+      {:json, "~> 0.3.0"}
     ]
   end
 end
